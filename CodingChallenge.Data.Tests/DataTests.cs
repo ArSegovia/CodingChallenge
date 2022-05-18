@@ -89,26 +89,26 @@ namespace CodingChallenge.Data.Tests
         //    Assert.AreEqual("<h1>Racconto di forme</h1>3 Quadrati | Area 35 | Perimetro 36 <br/>TOTALE:<br/>3 forme Perimetro 36 Area 35", resumen);
         //}
 
-        //[TestCase]
-        //public void TestResumenListaConMasTipos()
-        //{
-        //    var formas = new List<FormaGeometrica>
-        //    {
-        //        new Cuadrado(5),
-        //        new Circulo(3),
-        //        new TrianguloEquilatero(4),
-        //        new Cuadrado(2),
-        //        new TrianguloEquilatero(9),
-        //        new Circulo(2.75m),
-        //        new TrianguloEquilatero(4.2m)
-        //    };
+        [TestCase]
+        public void TestResumenListaConMasTipos()
+        {
+            var formas = new List<FormaGeometrica>
+            {
+                new Cuadrado(5),
+                new Circulo(3),
+                new TrianguloEquilatero(4),
+                new Cuadrado(2),
+                new TrianguloEquilatero(9),
+                new Circulo(2.75m),
+                new TrianguloEquilatero(4.2m)
+            };
 
-        //    var resumen = Reporte.Imprimir(formas, "Ing");
+            var resumen = Reporte.Imprimir(formas, "Ing");
 
-        //    Assert.AreEqual(
-        //        "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
-        //        resumen);
-        //}
+            Assert.AreEqual(
+                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
+                resumen);
+        }
 
         //[TestCase]
         //public void TestResumenListaConMasTiposEnCastellano()
@@ -131,54 +131,53 @@ namespace CodingChallenge.Data.Tests
         //        resumen);
         //}
 
+        //[TestCase]
+        //public void TestResumenListaConMasTiposEnItaliano()
+        //{
+        //    var formas = new List<FormaGeometrica>
+        //    {
+        //        new Cuadrado(5),
+        //        new Circulo(3),
+        //        new TrianguloEquilatero(4),
+        //        new Cuadrado(2),
+        //        new TrianguloEquilatero(9),
+        //        new Circulo(2.75m),
+        //        new TrianguloEquilatero(4.2m)
+        //    };
+
+        //    var resumen = Reporte.Imprimir(formas, "Ita");
+
+        //    Assert.AreEqual(
+        //        "<h1>Racconto di forme</h1>2 Quadrati | Area 29 | Perimetro 28 <br/>2 Cerchi | Area 13,01 | Perimetro 18,06 <br/>3 Triangoli | Area 49,64 | Perimetro 51,6 <br/>TOTALE:<br/>7 forme Perimetro 97,66 Area 91,65",
+        //        resumen);
+        //}
+
         [TestCase]
-        public void TestResumenListaConMasTiposEnItaliano()
+        public void TestResumenListaConUnTrapecio()
         {
-            var formas = new List<FormaGeometrica>
+            List<FormaGeometrica> formas = new List<FormaGeometrica>()
             {
-                new Cuadrado(5),
-                new Circulo(3),
-                new TrianguloEquilatero(4),
-                new Cuadrado(2),
-                new TrianguloEquilatero(9),
-                new Circulo(2.75m),
-                new TrianguloEquilatero(4.2m)
+                new Trapecio(5, 5, 4, 10, 4)
+
             };
 
-            var resumen = Reporte.Imprimir(formas, "Ita");
+            string resumen = Reporte.Imprimir(formas, "Esp");
 
-            Assert.AreEqual(
-                "<h1>Racconto di forme</h1>2 Quadrati | Area 29 | Perimetro 28 <br/>2 Cerchi | Area 13,01 | Perimetro 18,06 <br/>3 Triangoli | Area 49,64 | Perimetro 51,6 <br/>TOTALE:<br/>7 forme Perimetro 97,66 Area 91,65",
-                resumen);
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Trapecio | Área 28 | Perímetro 24 <br/>TOTAL:<br/>1 forma Perímetro 24 Área 28", resumen);
         }
 
-        //[TestCase]
-        //public void TestResumenListaConUnTrapecio()
-        //{
-        //    List<FormaGeometrica> formas = new List<FormaGeometrica>()
-        //    {
-        //        new Trapecio(5, 5, 4, 10, 4)
+        [TestCase]
+        public void TestResumenListaConUnRectangulo()
+        {       
+            List<FormaGeometrica> formas = new List<FormaGeometrica>()
+            {
+                new Rectangulo(6, 10)
 
-        //    };
+            };
 
-        //    string resumen = Reporte.Imprimir(formas, "Esp");
+            string resumen = Reporte.Imprimir(formas, "Ita");
 
-        //    Assert.AreEqual("<h1>Reporte de Formas</h1>1 Trapecio | Área 28 | Perímetro 24 <br/>TOTAL:<br/>1 forma Perímetro 24 Área 28", resumen);
-        //}
-
-        //[TestCase]
-        //public void TestResumenListaConUnRectangulo()
-        //{
-        //{
-        //    List<FormaGeometrica> formas = new List<FormaGeometrica>()
-        //    {
-        //        new Rectangulo(6, 10)
-
-        //    };
-
-        //    string resumen = Reporte.Imprimir(formas, "Esp");
-
-        //    Assert.AreEqual("<h1>Reporte de Formas</h1>1 Rectángulo | Área 60 | Perímetro 32 <br/>TOTAL:<br/>1 forma Perímetro 32 Área 60", resumen);
-        //}
+            Assert.AreEqual("<h1>Racconto di forme</h1>1 Rettangolo | Area 60 | Perimetro 32 <br/>TOTALE:<br/>1 forma Perimetro 32 Area 60", resumen);
+        }
     }
 }

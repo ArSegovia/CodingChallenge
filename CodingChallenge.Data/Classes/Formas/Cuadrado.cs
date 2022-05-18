@@ -18,7 +18,7 @@ namespace CodingChallenge.Data.Classes
         public decimal Perimetro { get { return _perimetro; } }       
 
         public Cuadrado()
-        {
+        {            
         }
 
         public Cuadrado(decimal lado)
